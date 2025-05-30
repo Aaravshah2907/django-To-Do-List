@@ -1,0 +1,12 @@
+<!-- This allows us to list the ToDoList(s)-->
+{% extends 'main/base.html' %} {% block head %}
+<title>View List</title>
+{% endblock %} {% block content %}
+<h1>To-Do List</h1>
+<h1>{{ls.title}}</h1>
+<ul>
+  {% for item in ls.item_set.all %} {% if item.completed == False %}
+  <li>{{item.text}}</li>
+  {% endif %} {% endfor %}
+</ul>
+{% endblock %}
