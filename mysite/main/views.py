@@ -6,6 +6,22 @@ from .forms import CreateNewList
 
 def index(request, id):
     ls = ToDoList.objects.get(id=id)
+    
+    if request.method == "POST":
+        if request.POST.get("save"):
+            for item in ls.item_set.all():
+                if request.POST.get('c' + str(item.id)) == 'clicked':
+                    item.completed = True
+                else:
+                    item.completed = False
+                item.save()
+        elif request.POST.get("newItem"):
+            text = request.POST.get("new")
+            if len(text) > 2:
+                ls.item_set.create(text=text, completed=False)
+            else:
+                print("Invalid input") 
+    
     return render(request, 'main/list.html', {"ls":ls})
 
 def home(request):
