@@ -9,4 +9,16 @@
         {{ form|crispy }}
         <button type="submit" class="btn btn-success">Register</button>
     </form>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Logout</button>
+    </form>
+{% endblock %}
+
+{% block login-page-content %}
+    <form action="" method="post" class="form-group">
+        {% csrf_token %} 
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
 {% endblock %}

@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),  # Include the main app's URLs
     path('register/', register_views.register, name='register'),  # Include the register app's URLs
+    path('', include("django.contrib.auth.urls")),  # Include Django's built-in auth URLs
 ]
