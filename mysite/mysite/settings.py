@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',  # Include crispy forms for better form rendering
+    'crispy_bootstrap4',  # Include crispy bootstrap4 for Bootstrap 4 support
     'main.apps.MainConfig',  # Include the main app
+    'register.apps.RegisterConfig',  # Include the register app
 ]
 
 MIDDLEWARE = [
@@ -121,3 +124,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'  # Allow Bootstrap 4 template pack for crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Use Bootstrap 4 for crispy forms
