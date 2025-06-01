@@ -4,12 +4,10 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
 class RegisterForm(UserCreationForm):
-    """
-    Custom registration form that inherits from UserCreationForm.
-    This form can be extended with additional fields if needed.
-    """
     email = forms.EmailField(required=True)
-    
+    first_name = forms.CharField(required=False, max_length=30)
+    last_name = forms.CharField(required=False, max_length=30)
+
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
